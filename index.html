@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>🐒 Ledri De Aap</title>
-
+    <title>tale</title>
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         :root {
             --red: #ff3333;
             --red-soft: rgba(255, 51, 51, 0.15);
@@ -22,7 +18,6 @@
             --text: #ffffff;
             --muted: #777;
         }
-
         body {
             min-height: 100vh;
             background: var(--bg);
@@ -30,14 +25,12 @@
             font-family: Arial, sans-serif;
             overflow-x: hidden;
         }
-
         .background {
             position: fixed;
             inset: 0;
             overflow: hidden;
             z-index: -1;
         }
-
         .orb {
             position: absolute;
             width: 400px;
@@ -47,29 +40,23 @@
             filter: blur(100px);
             animation: float 10s ease-in-out infinite;
         }
-
         .orb.one {
             top: -200px;
             left: -150px;
         }
-
         .orb.two {
             right: -200px;
             bottom: -200px;
             animation-delay: -5s;
         }
-
         @keyframes float {
-
             0%, 100% {
                 transform: translate(0, 0);
             }
-
             50% {
                 transform: translate(70px, 50px);
             }
         }
-
         .particle {
             position: absolute;
             width: 3px;
@@ -79,24 +66,19 @@
             opacity: 0.4;
             animation: rise 7s linear infinite;
         }
-
         @keyframes rise {
-
             from {
                 transform: translateY(110vh);
             }
-
             to {
                 transform: translateY(-10vh);
             }
         }
-
         .container {
             width: 900px;
             max-width: calc(100% - 30px);
             margin: 60px auto;
         }
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -108,17 +90,14 @@
             border-radius: 14px;
             backdrop-filter: blur(15px);
         }
-
         .logo {
             font-weight: bold;
             color: var(--red);
         }
-
         .nav-links {
             display: flex;
             gap: 18px;
         }
-
         .nav-links button {
             background: none;
             border: none;
@@ -126,34 +105,27 @@
             cursor: pointer;
             transition: 0.2s;
         }
-
         .nav-links button:hover,
         .nav-links button.active {
             color: var(--red);
         }
-
         .section {
             display: none;
             animation: sectionIn 0.35s ease;
         }
-
         .section.active {
             display: block;
         }
-
         @keyframes sectionIn {
-
             from {
                 opacity: 0;
                 transform: translateY(10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         .profile {
             padding: 45px;
             text-align: center;
@@ -164,7 +136,6 @@
             box-shadow:
                 0 0 70px rgba(255, 51, 51, 0.07);
         }
-
         .avatar {
             width: 105px;
             height: 105px;
@@ -180,36 +151,29 @@
                 0 0 40px rgba(255, 51, 51, 0.35);
             animation: pulse 3s ease-in-out infinite;
         }
-
         @keyframes pulse {
-
             0%, 100% {
                 box-shadow:
                     0 0 30px rgba(255, 51, 51, 0.3);
             }
-
             50% {
                 box-shadow:
                     0 0 55px rgba(255, 51, 51, 0.55);
             }
         }
-
         h1 {
             font-size: 32px;
             margin-bottom: 7px;
         }
-
         .username {
             color: var(--red);
             margin-bottom: 20px;
         }
-
         .bio {
             color: var(--muted);
             min-height: 22px;
             margin-bottom: 25px;
         }
-
         .status {
             display: inline-flex;
             align-items: center;
@@ -222,7 +186,6 @@
             font-size: 12px;
             color: #777;
         }
-
         .status-dot {
             width: 7px;
             height: 7px;
@@ -230,13 +193,11 @@
             border-radius: 50%;
             box-shadow: 0 0 10px #62ff91;
         }
-
         .socials {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
-
         .social {
             padding: 14px;
             text-decoration: none;
@@ -246,7 +207,6 @@
             border-radius: 11px;
             transition: 0.25s;
         }
-
         .social:hover {
             color: var(--red);
             border-color: var(--red);
@@ -254,14 +214,12 @@
             box-shadow:
                 0 8px 25px rgba(255,51,51,0.12);
         }
-
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             margin-top: 15px;
         }
-
         .card {
             padding: 25px;
             background: var(--card);
@@ -270,29 +228,24 @@
             backdrop-filter: blur(15px);
             transition: 0.25s;
         }
-
         .card:hover {
             transform: translateY(-3px);
             border-color: #333;
         }
-
         .card h2 {
             font-size: 18px;
             margin-bottom: 12px;
         }
-
         .card p {
             color: var(--muted);
             line-height: 1.6;
         }
-
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-top: 15px;
         }
-
         .stat {
             padding: 20px;
             text-align: center;
@@ -300,19 +253,16 @@
             border: 1px solid #252525;
             border-radius: 15px;
         }
-
         .stat strong {
             display: block;
             font-size: 25px;
             color: var(--red);
             margin-bottom: 5px;
         }
-
         .stat span {
             color: #666;
             font-size: 12px;
         }
-
         .project {
             padding: 20px;
             margin-bottom: 10px;
@@ -321,21 +271,17 @@
             border-radius: 12px;
             transition: 0.25s;
         }
-
         .project:hover {
             border-color: var(--red);
             transform: translateX(4px);
         }
-
         .project h3 {
             margin-bottom: 6px;
         }
-
         .project p {
             color: #666;
             font-size: 14px;
         }
-
         .music {
             display: flex;
             align-items: center;
@@ -346,7 +292,6 @@
             border-radius: 14px;
             margin-top: 15px;
         }
-
         .album {
             width: 55px;
             height: 55px;
@@ -357,347 +302,224 @@
             border-radius: 10px;
             font-size: 20px;
         }
-
         .music-info {
             text-align: left;
         }
-
         .music-info strong {
             display: block;
             margin-bottom: 5px;
         }
-
         .music-info span {
             color: #666;
             font-size: 12px;
         }
-
         .clock {
             margin-top: 25px;
             color: #555;
             font-size: 13px;
         }
-
         footer {
             text-align: center;
             margin-top: 20px;
             color: #333;
             font-size: 11px;
         }
-
         @media (max-width: 650px) {
-
             .container {
                 margin: 20px auto;
             }
-
             nav {
                 flex-direction: column;
                 gap: 15px;
             }
-
             .profile {
                 padding: 30px 20px;
             }
-
             .socials {
                 grid-template-columns: 1fr;
             }
-
             .grid {
                 grid-template-columns: 1fr;
             }
-
             .stats {
                 grid-template-columns: 1fr;
             }
         }
-
     </style>
 </head>
-
 <body>
-
     <div class="background">
-
         <div class="orb one"></div>
         <div class="orb two"></div>
-
         <div class="particle" style="left:5%; animation-delay:0s;"></div>
         <div class="particle" style="left:15%; animation-delay:2s;"></div>
         <div class="particle" style="left:30%; animation-delay:4s;"></div>
         <div class="particle" style="left:50%; animation-delay:1s;"></div>
         <div class="particle" style="left:70%; animation-delay:3s;"></div>
         <div class="particle" style="left:90%; animation-delay:5s;"></div>
-
     </div>
-
     <main class="container">
-
         <nav>
-
             <div class="logo">
-                🐒 Ledri De Aap
+                tale
             </div>
-
             <div class="nav-links">
-
                 <button class="active" onclick="showSection('home', this)">
                     Home
                 </button>
-
                 <button onclick="showSection('about', this)">
                     About
                 </button>
-
                 <button onclick="showSection('projects', this)">
                     Projects
                 </button>
-
             </div>
-
         </nav>
-
-
         <section id="home" class="section active">
-
             <div class="profile">
-
                 <div class="avatar">
                     H
                 </div>
-
-                <h1>🐒</h1>
-
+                <h1>tale</h1>
                 <div class="username">
-                    @Ledri De Aap
+                    @tale
                 </div>
-
                 <div class="status">
                     <span class="status-dot"></span>
                     currently online
                 </div>
-
                 <p class="bio" id="typing"></p>
-
                 <div class="socials">
-
                     <a class="social" href="#">
                         Discord
                     </a>
-
                     <a class="social" href="#">
                         TikTok
                     </a>
-
                     <a class="social" href="#">
                         GitHub
                     </a>
-
                 </div>
-
                 <div class="music">
-
-                    <div class="album">
-                        ♫
-                    </div>
-
+                    <div class="album"></div>
                     <div class="music-info">
-
                         <strong>Currently listening</strong>
-
                         <span>your song here</span>
-
                     </div>
-
                 </div>
-
                 <div class="clock" id="clock">
                     00:00:00
                 </div>
-
             </div>
-
             <div class="stats">
-
                 <div class="stat">
                     <strong>∞</strong>
                     <span>Ideas</span>
                 </div>
-
                 <div class="stat">
                     <strong>3</strong>
                     <span>Projects</span>
                 </div>
-
                 <div class="stat">
                     <strong>24/7</strong>
                     <span>Online</span>
                 </div>
-
             </div>
-
         </section>
-
-
         <section id="about" class="section">
-
             <div class="grid">
-
                 <div class="card">
-
                     <h2>About me</h2>
-
                     <p>
                         just a person making random things
                         on the internet.
                     </p>
-
                 </div>
-
                 <div class="card">
-
                     <h2>Interests</h2>
-
                     <p>
                         coding, websites, design,
                         technology and random projects.
                     </p>
-
                 </div>
-
             </div>
-
             <div class="card" style="margin-top:15px;">
-
                 <h2>My setup</h2>
-
                 <p>
                     currently building things from
                     wherever I happen to be.
                 </p>
-
             </div>
-
         </section>
-
-
         <section id="projects" class="section">
-
             <div class="card">
-
                 <h2>Projects</h2>
-
                 <div class="project">
-
-                    <h3>HOSTILE</h3>
-
+                    <h3>tale</h3>
                     <p>
                         this website you're looking at.
                     </p>
-
                 </div>
-
                 <div class="project">
-
                     <h3>Project Two</h3>
-
                     <p>
                         something cool coming soon.
                     </p>
-
                 </div>
-
                 <div class="project">
-
                     <h3>Project Three</h3>
-
                     <p>
                         another idea in progress.
                     </p>
-
                 </div>
-
             </div>
-
         </section>
-
-
         <footer>
             hosted with leoart zijn brein
         </footer>
-
     </main>
-
-
     <script>
-
         function showSection(id, button) {
-
             document.querySelectorAll(".section")
                 .forEach(section => {
                     section.classList.remove("active");
                 });
-
             document.getElementById(id)
                 .classList.add("active");
-
             document.querySelectorAll(".nav-links button")
                 .forEach(btn => {
                     btn.classList.remove("active");
                 });
-
             button.classList.add("active");
         }
-
-
         const text =
             "your little corner of the internet.";
-
         const typing =
             document.getElementById("typing");
-
         let index = 0;
-
         function typeText() {
-
             if (index < text.length) {
-
                 typing.textContent +=
                     text.charAt(index);
-
                 index++;
-
                 setTimeout(typeText, 55);
             }
         }
-
         typeText();
-
-
         function updateClock() {
-
             const now = new Date();
-
             const hours =
                 String(now.getHours()).padStart(2, "0");
-
             const minutes =
                 String(now.getMinutes()).padStart(2, "0");
-
             const seconds =
                 String(now.getSeconds()).padStart(2, "0");
-
             document.getElementById("clock")
                 .textContent =
                 `${hours}:${minutes}:${seconds}`;
         }
-
         updateClock();
-
         setInterval(updateClock, 1000);
-
     </script>
-
 </body>
 </html>

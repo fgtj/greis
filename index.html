@@ -3,106 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>🪷</title>
+
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
             min-height: 100vh;
-            background: #080808;
+            background: #050505;
             color: white;
             font-family: Arial, sans-serif;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             overflow: hidden;
         }
-        .profile {
-            width: 380px;
-            padding: 35px;
-            text-align: center;
-            background: #101010;
-            border: 1px solid #252525;
-            border-radius: 18px;
-            box-shadow: 0 0 50px rgba(255, 80, 180, 0.08);
+
+        /* Animated background */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
         }
-        .avatar {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 18px;
+
+        .orb {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+
+            background: rgba(255, 79, 163, 0.12);
             border-radius: 50%;
+
+            filter: blur(80px);
+
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb.one {
+            top: -150px;
+            left: -100px;
+        }
+
+        .orb.two {
+            right: -150px;
+            bottom: -150px;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(60px, 40px);
+            }
+        }
+
+        /* Small particles */
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+
             background: #ff4fa3;
+            border-radius: 50%;
+
+            opacity: 0.5;
+
+            animation: particleFloat 6s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.5;
+            }
+
+            80% {
+                opacity: 0.5;
+            }
+
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        /* Profile */
+
+        .profile {
+            width: 390px;
+            max-width: calc(100% - 30px);
+
+            padding: 35px;
+
+            text-align: center;
+
+            background: rgba(15, 15, 15, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 0 60px rgba(255, 79, 163, 0.08);
+
+            animation: appear 0.8s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Avatar */
+
+        .avatar {
+            width: 95px;
+            height: 95px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #ff4fa3;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 30px;
+
+            font-size: 32px;
             font-weight: bold;
-            box-shadow: 0 0 30px rgba(255, 79, 163, 0.35);
+
+            box-shadow:
+                0 0 25px rgba(255, 79, 163, 0.35);
+
+            animation: avatarGlow 3s ease-in-out infinite;
         }
+
+        @keyframes avatarGlow {
+            0%, 100% {
+                box-shadow:
+                    0 0 25px rgba(255, 79, 163, 0.3);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 45px rgba(255, 79, 163, 0.55);
+            }
+        }
+
+        /* Name */
+
         h1 {
-            font-size: 28px;
+            font-size: 30px;
             margin-bottom: 8px;
         }
+
         .username {
             color: #ff4fa3;
             margin-bottom: 18px;
         }
+
+        /* Typing text */
+
         .bio {
             color: #888;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            min-height: 24px;
+            margin-bottom: 28px;
         }
+
+        /* Links */
+
         .links {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
+
         .links a {
             display: block;
-            padding: 13px;
-            color: white;
+
+            padding: 14px;
+
+            color: #ddd;
             text-decoration: none;
-            background: #181818;
-            border: 1px solid #292929;
-            border-radius: 10px;
-            transition: 0.2s;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 11px;
+
+            transition: 0.25s ease;
         }
+
         .links a:hover {
-            transform: translateY(-2px);
-            border-color: #ff4fa3;
+            transform: translateY(-3px);
+
             color: #ff4fa3;
-            box-shadow: 0 0 20px rgba(255, 79, 163, 0.12);
+
+            border-color: rgba(255, 79, 163, 0.6);
+
+            background: rgba(255, 79, 163, 0.06);
+
+            box-shadow:
+                0 8px 25px rgba(255, 79, 163, 0.12);
         }
+
+        /* Clock */
+
+        .clock {
+            margin-top: 22px;
+
+            color: #555;
+
+            font-size: 13px;
+        }
+
+        /* Footer */
+
         .footer {
-            margin-top: 25px;
-            color: #444;
-            font-size: 12px;
+            margin-top: 12px;
+
+            color: #333;
+
+            font-size: 11px;
+        }
+
+        /* Phone */
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .profile {
+                width: 100%;
+                padding: 28px 22px;
+            }
+
+            .avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 27px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
+
 <body>
+
+    <!-- Background -->
+
+    <div class="background">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+        <div class="particle" style="left:10%; animation-delay:0s;"></div>
+        <div class="particle" style="left:25%; animation-delay:2s;"></div>
+        <div class="particle" style="left:40%; animation-delay:4s;"></div>
+        <div class="particle" style="left:60%; animation-delay:1s;"></div>
+        <div class="particle" style="left:75%; animation-delay:3s;"></div>
+        <div class="particle" style="left:90%; animation-delay:5s;"></div>
+
+    </div>
+
+    <!-- Profile -->
+
     <div class="profile">
+
         <div class="avatar">
             H
         </div>
+
         <h1>🪷</h1>
+
         <div class="username">
             @greis
         </div>
-        <p class="bio">
-            your little corner of the internet.
-        </p>
+
+        <p class="bio" id="typing"></p>
+
         <div class="links">
             <a href="#">greis</a>
             <a href="#">is de allerliefste</a>
             <a href="#">HG.</a>
         </div>
+
+        <div class="clock" id="clock">
+            00:00:00
+        </div>
+
         <div class="footer">
             hosted with leoart zijn brein
         </div>
+
     </div>
+
+    <script>
+
+        /* Typing animation */
+
+        const text = "your little corner of the internet.";
+        const typing = document.getElementById("typing");
+
+        let index = 0;
+
+        function typeText() {
+
+            if (index < text.length) {
+
+                typing.textContent += text.charAt(index);
+
+                index++;
+
+                setTimeout(typeText, 55);
+            }
+        }
+
+        typeText();
+
+
+        /* Live clock */
+
+        function updateClock() {
+
+            const now = new Date();
+
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
+
+            document.getElementById("clock").textContent =
+                `${hours}:${minutes}:${seconds}`;
+        }
+
+        updateClock();
+
+        setInterval(updateClock, 1000);
+
+    </script>
+
 </body>
 </html>
